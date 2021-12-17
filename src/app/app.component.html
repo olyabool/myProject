@@ -1,0 +1,8 @@
+<div *ngIf="env.isMobile; else web">
+  <mc-sendEmail-mobile></mc-sendEmail-mobile>
+</div>
+
+<ng-template #web>
+  <app-alert></app-alert>
+  <mc-sendEmail></mc-sendEmail>
+</ng-template>

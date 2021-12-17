@@ -1,0 +1,97 @@
+<div class="container-fluid mobile">
+  <div class="row-fluid">
+    <div class="centering">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <h1 class="standartText titleH3 text-xs-center gray">Send Email</h1>
+        <fieldset>
+          <fieldset
+            class="form-group"
+            [ngClass]="{
+              invalid: f.username.touched && f.username.invalid
+            }"
+          >
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Your Name"
+              formControlName="username"
+            />
+            <fieldset
+              class="error-messages"
+              *ngIf="f.username.touched && f.username.invalid"
+            >
+              <small *ngIf="f.username.errors"
+                >{{ decodeError('username') }}
+              </small>
+            </fieldset>
+          </fieldset>
+          <fieldset
+            class="form-group"
+            [ngClass]="{
+              invalid: f.email.touched && f.email.invalid
+            }"
+          >
+            <input
+              inputPost="trim"
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Your Email"
+              formControlName="email"
+            />
+            <fieldset
+              class="error-messages"
+              *ngIf="f.email.touched && f.email.errors"
+            >
+              <small *ngIf="f.email.errors">{{ decodeError('email') }} </small>
+            </fieldset>
+          </fieldset>
+          <fieldset
+            class="form-group"
+            [ngClass]="{
+              invalid: f.subject.touched && f.subject.invalid
+            }"
+          >
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Subject"
+              formControlName="subject"
+            />
+            <fieldset
+              class="error-messages"
+              *ngIf="f.subject.touched && f.subject.invalid"
+            >
+              <small *ngIf="f.subject.errors"
+                >{{ decodeError('subject') }}
+              </small>
+            </fieldset>
+          </fieldset>
+          <fieldset
+            class="form-group"
+            [ngClass]="{
+              invalid: f.message.touched && f.message.invalid
+            }"
+          >
+            <textarea
+              class="form-control form-control-lg"
+              formControlName="message"
+              placeholder="Message"
+            >
+            </textarea>
+            <fieldset
+              class="error-messages"
+              *ngIf="f.message.touched && f.message.invalid"
+            >
+              <small *ngIf="f.message.errors"
+                >{{ decodeError('message') }}
+              </small>
+            </fieldset>
+          </fieldset>
+          <button class="btn btn-l btn-primary button-wrapper" type="submit">
+            Send message
+          </button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
